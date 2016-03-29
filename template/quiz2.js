@@ -25,10 +25,10 @@
 	$submit.on("submit", function(e) {
 		e.preventDefault();
 		if ($(this).find('input[type="text"]').val() != '') {
-			$(this).find('input[type="text"]').forEach(function() {
-				$(this).fadeout('slow');
+			$(this).find('input').each(function() {
+				$(this).fadeOut('slow');
 			});
-			$(this).appendwith('<h2>Congratulations! You\'ve entered some text!</h2>');
+			$(this).append("<h2>Congratulations! You\'ve entered some text!</h2>");
 		}
 	});
 
