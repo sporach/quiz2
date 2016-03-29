@@ -4,35 +4,37 @@
 	// Use ajax to reach the api endpoint
 	// Whether or not you use jQuery, you still have to fix the jQuery errors. Removing jQuery is not fixing the problem.
 
-	$mouseover = $('.mouseover');
-	$click     = $('.clikc');
-	$sub       = $('.submit');
+	$mouseover = $(".mouseover");
+	$click     = $(".click");
+	$submit    = $(".submit");
+	$timeout   = $(".timeout");
 
-	$mouseover.on('mouseover', function() {
+	$mouseover.on("mouseover", function() {
 		$this = $(this);
 		$(this).html('Scrooge McDuck!');
 		$(this).height($(this).height() + 50);
 	});
 
-	$click.click('click', function() {
-		$this.hmtl('Peace Out!')
-		$(this).fadeout(1500);
+	$click.on("click", function() {
+		$this = $(this);
+		$this.html('Peace Out!');
+		$this.fadeOut(1500);
 		return false;
 	});
 
-	$submit.on('submit', function(e) {
+	$submit.on("submit", function(e) {
 		e.preventDefault();
-		if ($(this).find('input[type="text"]').val() !== '') {
-			$(this).find('input').foreach(function() {
+		if ($(this).find('input[type="text"]').val() != '') {
+			$(this).find('input[type="text"]').forEach(function() {
 				$(this).fadeout('slow');
 			});
-			$(this).appendwith('<h2>Congratulations! You've entered some text!</h2>');
+			$(this).appendwith('<h2>Congratulations! You\'ve entered some text!</h2>');
 		}
 	});
 
-	$(document).on(ready, function() {
-		setTimeout({
-			$timeout.fadeIn('slow');
+	$(document).on("ready", function() {
+		setTimeout(function(){
+			$timeout.fadeOut('slow');
 		}, 1000);
 	});
 
